@@ -6,7 +6,6 @@
     - jalankan perintah composer install
     - copy .env dan lakukan perintah php artisan key:generate dan php artisan jwt:secret
     - setup configurasi database di .env dan jalankan perintah php artisan migrate --seed
-    - jalankan php artisan serve dan buka relative link untuk project TubeStream
 
 ## License
 

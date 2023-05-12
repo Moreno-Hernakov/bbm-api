@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Komposisi extends Model
 {
     use HasFactory;
+
+    protected $guarded = '';
+
+    public function MerkKendaraan()
+    {
+        return $this->belongsTo(MerkKendaraan::class);
+    }
 }

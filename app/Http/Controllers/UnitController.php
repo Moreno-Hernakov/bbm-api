@@ -12,15 +12,8 @@ class UnitController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $unit = unit::with('wilayah', 'area')->get();
+        return response()->json($unit);
     }
 
     /**
@@ -28,21 +21,23 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $unit = request()->validate([
+            'wilayah_id' => 'required',
+            'area_id' => 'required',
+        ]);
+
+        unit::create($unit);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'unit berhasil ditambahakan'
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Unit $unit)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Unit $unit)
+    public function show(string $id)
     {
         //
     }
@@ -50,16 +45,31 @@ class UnitController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Unit $unit)
+    public function update(Request $request, string $id)
     {
-        //
+        $data = request()->validate([
+            'wilayah_id' => 'required',
+            'area_id' => 'required',
+        ]);
+
+        unit::where('id', $id)->update($data);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'unit berhasil diperbarui'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Unit $unit)
+    public function destroy(unit $unit)
     {
-        //
+        unit::destroy($unit->id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'unit berhasil dihapus'
+        ]);
     }
 }

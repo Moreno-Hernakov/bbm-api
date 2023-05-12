@@ -12,15 +12,9 @@ class KendaraanController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        // $kendaraan = kendaraan::with('JenisKendaraan', 'unit.area.wilayah')->get();
+        $kendaraan = kendaraan::with('JenisKendaraan', 'unit', 'area', 'wilayah')->get();
+        return response()->json($kendaraan);
     }
 
     /**
@@ -28,21 +22,25 @@ class KendaraanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kendaraan = request()->validate([
+            'jenis_kendaraan_id' => 'required',
+            'wilayah_id' => 'required',
+            'area_id' => 'required',
+            'unit_id' => 'required',
+        ]);
+
+        kendaraan::create($kendaraan);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Kendaraan berhasil ditambahakan'
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Kendaraan $kendaraan)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Kendaraan $kendaraan)
+    public function show(string $id)
     {
         //
     }
@@ -50,16 +48,33 @@ class KendaraanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kendaraan $kendaraan)
+    public function update(Request $request, string $id)
     {
-        //
+        $data = request()->validate([
+            'jenis_kendaraan_id' => 'required',
+            'wilayah_id' => 'required',
+            'area_id' => 'required',
+            'unit_id' => 'required',
+        ]);
+
+        kendaraan::where('id', $id)->update($data);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Kendaraan berhasil diperbarui'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kendaraan $kendaraan)
+    public function destroy(kendaraan $kendaraan)
     {
-        //
+        kendaraan::destroy($kendaraan->id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Kendaraan berhasil dihapus'
+        ]);
     }
 }

@@ -7,20 +7,10 @@ use Illuminate\Http\Request;
 
 class AreaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $area = area::with('wilayah')->get();
+        return response()->json($area);
     }
 
     /**
@@ -28,21 +18,23 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $area = request()->validate([
+            'nama_area' => 'required|min:2',
+            'wilayah_id' => 'required',
+        ]);
+
+        area::create($area);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'area Kendaraan berhasil ditambahakan'
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Area $area)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Area $area)
+    public function show(string $id)
     {
         //
     }
@@ -50,16 +42,30 @@ class AreaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Area $area)
+    public function update(Request $request, string $id)
     {
-        //
+        $data = request()->validate([
+            'nama_area' => 'required|min:2',
+        ]);
+
+        area::where('id', $id)->update($data);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'area Kendaraan berhasil diperbarui'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Area $area)
+    public function destroy(area $area)
     {
-        //
+        area::destroy($area->id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'area Kendaraan berhasil dihapus'
+        ]);
     }
 }

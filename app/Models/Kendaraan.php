@@ -8,4 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Kendaraan extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function Area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+    
+    public function Unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
+
+    public function Wilayah()
+    {
+        return $this->belongsTo(Wilayah::class);
+    }
+
+    public function JenisKendaraan()
+    {
+        return $this->belongsTo(JenisKendaraan::class);
+    }
+
 }

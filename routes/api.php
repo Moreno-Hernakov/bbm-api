@@ -7,6 +7,10 @@ use App\Http\Controllers\JenisKendaraanController;
 use App\Http\Controllers\MerkKendaraanController;
 use App\Http\Controllers\WilayahController;
 
+use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\KomposisiController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\UnitController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -44,5 +48,35 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/merkkendaraan', 'store');
         Route::put('/merkkendaraan/{merkkendaraan}', 'update');
         Route::delete('/merkkendaraan/{merkkendaraan}', 'destroy');
+    });
+
+    // ==================================================================
+
+    Route::controller(AreaController::class)->group(function () {
+        Route::get('/area', 'index');
+        Route::post('/area', 'store');
+        Route::put('/area/{area}', 'update');
+        Route::delete('/area/{area}', 'destroy');
+    });
+
+    Route::controller(KomposisiController::class)->group(function () {
+        Route::get('/komposisi', 'index');
+        Route::post('/komposisi', 'store');
+        Route::put('/komposisi/{komposisi}', 'update');
+        Route::delete('/komposisi/{komposisi}', 'destroy');
+    });
+
+    Route::controller(KendaraanController::class)->group(function () {
+        Route::get('/kendaraan', 'index');
+        Route::post('/kendaraan', 'store');
+        Route::put('/kendaraan/{kendaraan}', 'update');
+        Route::delete('/kendaraan/{kendaraan}', 'destroy');
+    });
+
+    Route::controller(UnitController::class)->group(function () {
+        Route::get('/unit', 'index');
+        Route::post('/unit', 'store');
+        Route::put('/unit/{unit}', 'update');
+        Route::delete('/unit/{unit}', 'destroy');
     });
 });

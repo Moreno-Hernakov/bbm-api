@@ -9,4 +9,10 @@ class JenisKendaraan extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function Kendaraan()
+    {
+        return $this->hasOne(Kendaraan::class);
+    }
+
 }

@@ -12,7 +12,7 @@ class UnitController extends Controller
      */
     public function index()
     {
-        $unit = unit::with('wilayah', 'area')->get();
+        $unit = unit::with('area.wilayah')->get();
         return response()->json($unit);
     }
 

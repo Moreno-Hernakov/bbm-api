@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('kendaraans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jenis_kendaraan_id')->constrained('jenis_kendaraans')->onDelete('cascade');
-            $table->foreignId('wilayah_id')->constrained('wilayahs')->onDelete('cascade');
-            $table->foreignId('area_id')->constrained('areas')->onDelete('cascade');
             $table->foreignId('unit_id')->constrained('units')->onDelete('cascade');
             $table->timestamps();
         });

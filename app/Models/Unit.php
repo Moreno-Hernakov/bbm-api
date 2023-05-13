@@ -11,10 +11,6 @@ class Unit extends Model
 
     protected $guarded = [];
 
-    public function Wilayah()
-    {
-        return $this->belongsTo(Wilayah::class);
-    }
 
     public function Area()
     {

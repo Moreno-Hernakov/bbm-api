@@ -11,19 +11,9 @@ class Kendaraan extends Model
 
     protected $guarded = [];
 
-    public function Area()
-    {
-        return $this->belongsTo(Area::class);
-    }
-    
     public function Unit()
     {
         return $this->belongsTo(Unit::class);
-    }
-
-    public function Wilayah()
-    {
-        return $this->belongsTo(Wilayah::class);
     }
 
     public function JenisKendaraan()

@@ -6,6 +6,28 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function register(){
+        $data = request()->validate([
+			'name'=>'required|email',
+			'email'=>'required',
+			'nomor_telfon'=>'required',
+			'password'=>'required|min:3',
+		]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'nomor_telfon' => $request->nomor_telfon,
+            'password' => Hash::make($request->password)
+        ]);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'User Created Successfully',
+            'token' => $user->createToken("API TOKEN")->plainTextToken
+        ], 200);
+    }
+
     public function login()
     {
         $data = request()->validate([

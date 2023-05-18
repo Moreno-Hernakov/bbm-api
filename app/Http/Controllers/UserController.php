@@ -36,7 +36,10 @@ class UserController extends Controller
 		]);
 
         if (! $token = auth()->attempt($data)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json([
+                'success' => false,
+                'message' => 'Email & Password does not match with our record.',
+            ], 401);
         }
 
         return response()->json([

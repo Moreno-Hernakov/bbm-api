@@ -11,6 +11,8 @@ use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\KomposisiController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\SaldoController;
+use App\Http\Controllers\HistoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -78,5 +80,16 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/unit', 'store');
         Route::put('/unit/{unit}', 'update');
         Route::delete('/unit/{unit}', 'destroy');
+    });
+    
+    Route::controller(SaldoController::class)->group(function () {
+        Route::get('/saldo', 'index');
+        Route::post('/saldo', 'store');
+        Route::put('/saldo/{saldo}', 'update');
+        Route::delete('/saldo/{saldo}', 'destroy');
+    });
+
+    Route::controller(HistoryController::class)->group(function () {
+        Route::get('/history', 'index');
     });
 });

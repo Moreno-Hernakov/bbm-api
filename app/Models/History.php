@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Komposisi extends Model
+class History extends Model
 {
     use HasFactory;
 
     protected $guarded = '';
-
-    public function JenisKendaraan()
+    
+    public function saldo()
     {
-        return $this->belongsTo(JenisKendaraan::class);
+        return $this->belongTo(saldo::class);
     }
+    
 }

@@ -12,7 +12,7 @@ class KomposisiController extends Controller
      */
     public function index()
     {
-        $komposisi = komposisi::with('MerkKendaraan')->get();
+        $komposisi = komposisi::with('JenisKendaraan')->get();
         return response()->json($komposisi);
     }
 
@@ -22,11 +22,18 @@ class KomposisiController extends Controller
     public function store(Request $request)
     {
         $komposisi = request()->validate([
-            'jumlah_konsumsi_bbm' => 'required|min:2',
-            'merk_kendaraan_id' => 'required',
+            'jarak_tempuh' => 'required|integer',
+            'jumlah_uang' => 'required|integer',
+            'jumlah_konsumsi_bbm' => 'required|integer',
+            'gambar' => 'required|mimes:jpeg,jpg,png',
+            'jenis_Kendaraan_id' => 'required',
         ]);
 
+        $data['gambar'] =  $request->file("gambar")->store('gambar', 'public');
+
         komposisi::create($komposisi);
+        
+        app('App\Http\Controllers\SaldoController')->kurang($komposisi['jumlah_uang']);
 
         return response()->json([
             'success' => true,
@@ -48,7 +55,11 @@ class KomposisiController extends Controller
     public function update(Request $request, string $id)
     {
         $data = request()->validate([
-            'jumlah_konsumsi_bbm' => 'required|min:2',
+            'jarak_tempuh' => 'required|integer',
+            'jumlah_uang' => 'required|integer',
+            'jumlah_konsumsi_bbm' => 'required|integer',
+            'gambar' => 'required|mimes:jpeg,jpg,png',
+            'jenis_Kendaraan_id' => 'required',
         ]);
 
         komposisi::where('id', $id)->update($data);

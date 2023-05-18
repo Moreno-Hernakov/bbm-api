@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+           
         User::create([
-            'name' => 'reno',
-            'email' => 'test@gmail.com',
+            'name' => 'Lokpro Media',
+            'email' => 'lokpro2023@gmail.com',
             'nomor_telfon' => '082131230184',
-            'password' => bcrypt('test')
+            'password' => bcrypt('lokpro2023'),
         ]);
     }
 }

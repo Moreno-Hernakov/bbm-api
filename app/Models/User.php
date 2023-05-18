@@ -13,6 +13,10 @@ class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function saldo()
+    {
+        return $this->hasOne(saldo::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

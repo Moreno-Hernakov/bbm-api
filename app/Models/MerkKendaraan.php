@@ -10,9 +10,5 @@ class MerkKendaraan extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function Komposisi()
-    {
-        return $this->hasOne(Komposisi::class);
-    }
 
 }

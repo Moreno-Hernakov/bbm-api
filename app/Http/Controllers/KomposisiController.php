@@ -29,7 +29,7 @@ class KomposisiController extends Controller
             'jenis_Kendaraan_id' => 'required',
         ]);
 
-        $data['gambar'] =  $request->file("gambar")->store('gambar', 'public');
+        $komposisi['gambar'] =  $request->file("gambar")->store('gambar', 'public');
 
         komposisi::create($komposisi);
         

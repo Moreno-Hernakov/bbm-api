@@ -85,11 +85,5 @@ Route::middleware('auth:api')->group(function () {
     Route::controller(SaldoController::class)->group(function () {
         Route::get('/saldo', 'index');
         Route::post('/saldo', 'store');
-        Route::put('/saldo/{saldo}', 'update');
-        Route::delete('/saldo/{saldo}', 'destroy');
-    });
-
-    Route::controller(HistoryController::class)->group(function () {
-        Route::get('/history', 'index');
     });
 });

@@ -16,6 +16,7 @@ class SaldoController extends Controller
     {
         $saldo = request()->validate([
             'jumlah_saldo' => 'required|integer',
+            'unit_id' => 'required|integer',
         ]);
 
         $saldo['user_id'] = auth()->user()->id;
@@ -38,9 +39,7 @@ class SaldoController extends Controller
         $saldo = saldo::latest()->first();
         
         if($saldo->jumlah_saldo < $jumlah_uang){
-            return response()->json([
-                "error" => "saldo tidak mencukupi untuk melakukan transaksi"
-            ]);
+            return response()->json(abort(400, "uang tidak mencukupi"));
         }
 
         saldo::where('user_id', auth()->user()->id)->update([

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('jarak_tempuh');
             $table->integer('jumlah_uang');
             $table->string('gambar');
+            $table->string('gambar_kwitansi');
             $table->foreignId('jenis_kendaraan_id')->constrained('jenis_kendaraans')->onDelete('cascade');
             $table->timestamps();
         });

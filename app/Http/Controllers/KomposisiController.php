@@ -26,10 +26,12 @@ class KomposisiController extends Controller
             'jumlah_uang' => 'required|integer',
             'jumlah_konsumsi_bbm' => 'required|integer',
             'gambar' => 'required|mimes:jpeg,jpg,png',
+            'gambar_kwitansi' => 'required|mimes:jpeg,jpg,png',
             'jenis_Kendaraan_id' => 'required',
         ]);
 
         $komposisi['gambar'] =  $request->file("gambar")->store('gambar', 'public');
+        $komposisi['gambar_kwitansi'] =  $request->file("gambar_kwitansi")->store('gambar_kwitansi', 'public');
 
         komposisi::create($komposisi);
         
@@ -59,6 +61,7 @@ class KomposisiController extends Controller
             'jumlah_uang' => 'required|integer',
             'jumlah_konsumsi_bbm' => 'required|integer',
             'gambar' => 'required|mimes:jpeg,jpg,png',
+            'gambar_kwitansi' => 'required|mimes:jpeg,jpg,png',
             'jenis_Kendaraan_id' => 'required',
         ]);
 

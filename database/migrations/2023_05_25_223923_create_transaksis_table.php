@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('komposisis', function (Blueprint $table) {
+        Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->integer('jumlah_konsumsi_bbm');
-            $table->integer('jarak_tempuh');
+            $table->integer('jumlah_pembelian_bbm');
             $table->integer('jumlah_uang');
-            $table->string('gambar');
+            $table->string('gambar_dashboard_kendaraan');
             $table->string('gambar_kwitansi');
-            $table->foreignId('jenis_kendaraan_id')->constrained('jenis_kendaraans')->onDelete('cascade');
-            $table->timestamps();
+            $table->integer('kd_jenis_kendaraan');
+            $table->foreign('kd_jenis_kendaraan')->references('kd_jenis_kendaraan')->on('jenis_kendaraans')->onDelete('cascade');   $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('komposisis');
+        Schema::dropIfExists('transaksis');
     }
 };

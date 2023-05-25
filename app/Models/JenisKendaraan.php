@@ -10,9 +10,9 @@ class JenisKendaraan extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function Komposisi()
+    public function Transaksi()
     {
-        return $this->hasOne(Komposisi::class);
+        return $this->hasOne(Transaksi::class);
     }
     
     public function Kendaraan()

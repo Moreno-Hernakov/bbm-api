@@ -33,10 +33,10 @@ class TransaksiController extends Controller
         //
         $transaksi = request()->validate([
             'jumlah_uang' => 'required|integer',
-            'jumlah_konsumsi_bbm' => 'required|integer',
+            'jumlah_pembelian_bbm' => 'required|integer',
             'gambar_dashboard_kendaraan' => 'required|mimes:jpeg,jpg,png',
             'gambar_kwitansi' => 'required|mimes:jpeg,jpg,png',
-            'jenis_Kendaraan_id' => 'required',
+            'kd_jenis_kendaraan' => 'required',
         ]);
 
         $transaksi['gambar_dashboard_kendaraan'] =  $request->file("gambar_dashboard_kendaraan")->store('gambar_dashboard_kendaraan', 'public');
@@ -76,10 +76,10 @@ class TransaksiController extends Controller
         //
         $data = request()->validate([
             'jumlah_uang' => 'required|integer',
-            'jumlah_konsumsi_bbm' => 'required|integer',
+            'jumlah_pembelian_bbm' => 'required|integer',
             'gambar_dashboard_kendaraan' => 'required|mimes:jpeg,jpg,png',
             'gambar_kwitansi' => 'required|mimes:jpeg,jpg,png',
-            'jenis_Kendaraan_id' => 'required',
+            'kd_jenis_Kendaraan' => 'required',
         ]);
 
         transaksi::where('id', $id)->update($data);

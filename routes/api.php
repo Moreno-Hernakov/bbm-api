@@ -8,7 +8,7 @@ use App\Http\Controllers\MerkKendaraanController;
 use App\Http\Controllers\WilayahController;
 
 use App\Http\Controllers\KendaraanController;
-use App\Http\Controllers\KomposisiController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\SaldoController;
@@ -59,6 +59,13 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/area', 'store');
         Route::put('/area/{area}', 'update');
         Route::delete('/area/{area}', 'destroy');
+    });
+
+    Route::controller(TransaksiController::class)->group(function () {
+        Route::get('/transaksi', 'index');
+        Route::post('/transaksi', 'store');
+        Route::put('/transaksi/{transaksi}', 'update');
+        Route::delete('/transaksi/{transaksi}', 'destroy');
     });
 
     Route::controller(KomposisiController::class)->group(function () {

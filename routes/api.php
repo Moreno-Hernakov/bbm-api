@@ -6,7 +6,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisKendaraanController;
 use App\Http\Controllers\MerkKendaraanController;
 use App\Http\Controllers\WilayahController;
-
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\AreaController;
@@ -68,12 +67,7 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('/transaksi/{transaksi}', 'destroy');
     });
 
-    Route::controller(KomposisiController::class)->group(function () {
-        Route::get('/komposisi', 'index');
-        Route::post('/komposisi', 'store');
-        Route::put('/komposisi/{komposisi}', 'update');
-        Route::delete('/komposisi/{komposisi}', 'destroy');
-    });
+  
 
     Route::controller(KendaraanController::class)->group(function () {
         Route::get('/kendaraan', 'index');

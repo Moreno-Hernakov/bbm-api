@@ -39,8 +39,8 @@ class TransaksiController extends Controller
             'kd_jenis_kendaraan' => 'required',
         ]);
 
-        $transaksi['gambar_dashboard_kendaraan'] =  $request->file("gambar_dashboard_kendaraan")->store('gambar_dashboard_kendaraan', 'public');
-        $transaksi['gambar_kwitansi'] =  $request->file("gambar_kwitansi")->store('gambar_kwitansi', 'public');
+        $transaksi['gambar_dashboard_kendaraan'] =  $request->file("gambar_dashboard_kendaraan")->store('foto_dashboard', 'public');
+        $transaksi['gambar_kwitansi'] =  $request->file("gambar_kwitansi")->store('foto_kwitansi', 'public');
 
         transaksi::create($transaksi);
         

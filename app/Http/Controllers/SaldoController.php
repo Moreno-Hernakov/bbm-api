@@ -9,7 +9,7 @@ class SaldoController extends Controller
 {
     public function index()
     {
-        return saldo::with('User', 'History')->get();
+        return saldo::with('User', 'History')->orderBy('created_at', 'desc')->get();
     }
 
     public function store(Request $request)

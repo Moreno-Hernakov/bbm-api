@@ -12,6 +12,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\BbmController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -86,5 +87,10 @@ Route::middleware('auth:api')->group(function () {
     Route::controller(SaldoController::class)->group(function () {
         Route::get('/saldo', 'index');
         Route::post('/saldo', 'store');
+    });
+    
+    Route::controller(BbmController::class)->group(function () {
+        Route::get('/bbm', 'index');
+        Route::post('/bbm', 'store');
     });
 });

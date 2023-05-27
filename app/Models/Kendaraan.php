@@ -11,6 +11,10 @@ class Kendaraan extends Model
 
     protected $guarded = [];
 
+    public function bbm(){
+        return $this->hasOne(bbm::class);
+    }
+
     public function Unit()
     {
         return $this->belongsTo(Unit::class);

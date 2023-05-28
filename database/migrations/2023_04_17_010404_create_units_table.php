@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Area;
+use App\Models\Wilayah;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use App\Models\Regions;
 
 return new class extends Migration
 {
@@ -12,10 +15,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('units', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('area_id')->constrained('areas')->onDelete('cascade');
+            $table->index('kd_unit');
+            $table->integer('kd_unit');
+
+            $table->integer('kd_area');
+            $table->foreign('kd_area')->references('kd_area')->on('areas')->onDelete('cascade');
+            $table->string('nama_unit');
             $table->timestamps();
         });
+            //relasi ke table regions
+
+
+
     }
 
     /**

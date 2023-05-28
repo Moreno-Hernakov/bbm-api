@@ -17,8 +17,11 @@ return new class extends Migration
     {
         Schema::create('saldos', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Unit::class)->constrained()->onDelete('cascade');
-            $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
+            
+            $table->integer('kd_unit');
+            $table->foreign('kd_unit')->references('kd_unit')->on('units');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users');
             $table->string('jumlah_saldo');
             $table->timestamps();
         });

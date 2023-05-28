@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Wilayah;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 return new class extends Migration
 {
     /**
@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('areas', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('wilayah_id')->constrained('wilayahs')->onDelete('cascade');
+            $table->index('kd_area');
+            $table->integer('kd_area');
+            $table->integer('kd_region');
+            $table->foreign('kd_region')->references('kd_region')->on('regions')->onDelete('cascade');
             $table->string('nama_area');
             $table->timestamps();
         });

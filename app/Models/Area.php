@@ -10,9 +10,8 @@ class Area extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function Wilayah()
-    {
-        return $this->belongsTo(Wilayah::class);
+    public function region(){
+        return $this->belongsTo(Region::class);
     }
     
     public function Unit()

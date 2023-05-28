@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Wilayah extends Model
+class Region extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
 
-    public function Area()
-    {
-        return $this->hasOne(Area::class);
+    public function area(){
+        return $this->hasOne(area::class);
     }
-
-
-
 }

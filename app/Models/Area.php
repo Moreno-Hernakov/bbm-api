@@ -11,7 +11,7 @@ class Area extends Model
     protected $guarded = [];
 
     public function region(){
-        return $this->belongsTo(Region::class);
+        return $this->belongsTo(Region::class, 'kd_region', 'kd_region');
     }
     
     public function Unit()

@@ -16,7 +16,7 @@ class SaldoController extends Controller
     {
         $saldo = request()->validate([
             'jumlah_saldo' => 'required|integer',
-            'unit_id' => 'required|integer',
+            'kd_unit' => 'required|integer',
         ]);
 
         $saldo['user_id'] = auth()->user()->id;

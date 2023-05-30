@@ -17,7 +17,7 @@ class Kendaraan extends Model
 
     public function Unit()
     {
-        return $this->belongsTo(Unit::class);
+        return $this->belongsTo(Unit::class, 'kd_unit', 'kd_unit');
     }
 
     public function JenisKendaraan()

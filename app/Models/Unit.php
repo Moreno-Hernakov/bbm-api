@@ -14,7 +14,7 @@ class Unit extends Model
 
     public function Area()
     {
-        return $this->belongsTo(Area::class);
+        return $this->belongsTo(Area::class, 'kd_area', 'kd_area');
     }
 
     public function Kendaraan()

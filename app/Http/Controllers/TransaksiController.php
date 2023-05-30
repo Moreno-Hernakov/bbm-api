@@ -13,7 +13,7 @@ class TransaksiController extends Controller
     public function index()
     {
         //
-        $transaksi = transaksi::with('JenisKendaraan')->get();
+        $transaksi = transaksi::with('JenisKendaraan', 'bbm', 'kendaraan.unit.area.region')->get();
         return response()->json($transaksi);
     }
 
@@ -82,7 +82,10 @@ class TransaksiController extends Controller
             'jumlah_pembelian_bbm' => 'required|integer',
             'gambar_dashboard_kendaraan' => 'required|mimes:jpeg,jpg,png',
             'gambar_kwitansi' => 'required|mimes:jpeg,jpg,png',
-            'kd_jenis_Kendaraan' => 'required',
+            'nama_spbu' => 'required',
+            'kd_jenis_kendaraan' => 'required',
+            'kd_kendaraan' => 'required',
+            'kd_bbm' => 'required',
         ]);
 
         transaksi::where('id', $id)->update($data);

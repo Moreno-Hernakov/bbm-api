@@ -13,6 +13,16 @@ class Transaksi extends Model
 
     public function JenisKendaraan()
     {
-        return $this->belongsTo(JenisKendaraan::class);
+        return $this->belongsTo(JenisKendaraan::class, 'kd_jenis_kendaraan', 'kd_jenis_kendaraan');
+    }
+
+    public function bbm()
+    {
+        return $this->belongsTo(bbm::class, 'kd_bbm');
+    }
+
+    public function Kendaraan()
+    {
+        return $this->belongsTo(Kendaraan::class, 'kd_kendaraan', 'kd_kendaraan');
     }
 }

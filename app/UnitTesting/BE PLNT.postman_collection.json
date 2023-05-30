@@ -217,12 +217,12 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "test@gmail.com",
+									"value": "lokpro2023@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "test",
+									"value": "lokpro2023",
 									"type": "text"
 								}
 							]
@@ -516,7 +516,7 @@
 							"formdata": [
 								{
 									"key": "jenis",
-									"value": "coba",
+									"value": "truk",
 									"type": "text"
 								}
 							]
@@ -828,7 +828,7 @@
 			]
 		},
 		{
-			"name": "area",
+			"name": "komposisi",
 			"item": [
 				{
 					"name": "index",
@@ -906,9 +906,24 @@
 									"type": "text"
 								},
 								{
-									"key": "merk_kendaraan_id",
-									"value": "2",
+									"key": "jenis_Kendaraan_id",
+									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "jarak_tempuh",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "jumlah_uang",
+									"value": "12000",
+									"type": "text"
+								},
+								{
+									"key": "gambar",
+									"type": "file",
+									"src": "/C:/Users/Reno/OneDrive/Gambar/code2.png"
 								}
 							]
 						},
@@ -1005,7 +1020,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/area/1",
+							"raw": "http://127.0.0.1:8000/api/komposisi/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1016,7 +1031,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"area",
+								"komposisi",
 								"1"
 							]
 						}
@@ -1026,7 +1041,222 @@
 			]
 		},
 		{
-			"name": "komposisi",
+			"name": "saldo",
+			"item": [
+				{
+					"name": "index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/saldo",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"saldo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "jumlah_saldo",
+									"value": "12000",
+									"type": "text"
+								},
+								{
+									"key": "unit_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/saldo",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"saldo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bbm",
+			"item": [
+				{
+					"name": "index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/bbm",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bbm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_spbu",
+									"value": "randu blatung",
+									"type": "text"
+								},
+								{
+									"key": "jenis_bbm",
+									"value": "pertalite",
+									"type": "text"
+								},
+								{
+									"key": "kendaraan_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/bbm",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bbm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "area",
 			"item": [
 				{
 					"name": "index",
@@ -1297,11 +1527,6 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "wilayah_id",
-									"value": "2",
-									"type": "text"
-								},
-								{
 									"key": "area_id",
 									"value": "1",
 									"type": "text"
@@ -1354,7 +1579,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"wilayah_id\" : \"2\",\r\n    \"area_id\" : \"1\"\r\n}"
+							"raw": "{\r\n    \"area_id\" : \"1\"\r\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/unit/1",
@@ -1495,18 +1720,8 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "wilayah_id",
-									"value": "2",
-									"type": "text"
-								},
-								{
 									"key": "jenis_kendaraan_id",
 									"value": "2",
-									"type": "text"
-								},
-								{
-									"key": "area_id",
-									"value": "1",
 									"type": "text"
 								},
 								{
@@ -1562,7 +1777,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"jenis_kendaraan_id\" : \"2\",\r\n    \"wilayah_id\" : \"2\",\r\n    \"area_id\" : \"1\",\r\n    \"unit_id\" : \"1\"\r\n}"
+							"raw": "{\r\n    \"jenis_kendaraan_id\" : \"2\",\r\n    \"unit_id\" : \"1\"\r\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/kendaraan/1",

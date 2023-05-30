@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TransaksiController extends Controller
 {
@@ -42,8 +43,13 @@ class TransaksiController extends Controller
             'kd_bbm' => 'required',
         ]);
 
-        $transaksi['gambar_dashboard_kendaraan'] =  $request->file("gambar_dashboard_kendaraan")->store('foto_dashboard', 'public');
-        $transaksi['gambar_kwitansi'] =  $request->file("gambar_kwitansi")->store('foto_kwitansi', 'public');
+        $dashboard = $request->file('gambar_dashboard_kendaraan');
+        $kwitansi = $request->file('gambar_kwitansi');
+        
+        $transaksi['gambar_dashboard_kendaraan'] = Storage::disk('public')->put('foto_dashboard', $dashboard);
+        $transaksi['gambar_kwitansi'] = Storage::disk('public')->put('foto_kwitansi', $kwitansi);
+        // $transaksi['gambar_dashboard_kendaraan'] =  $request->file("gambar_dashboard_kendaraan")->store('foto_dashboard', 'public');
+        // $transaksi['gambar_kwitansi'] =  $request->file("gambar_kwitansi")->store('foto_kwitansi', 'public');
 
         transaksi::create($transaksi);
         

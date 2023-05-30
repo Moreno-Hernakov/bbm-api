@@ -12,7 +12,7 @@ class Kendaraan extends Model
     protected $guarded = [];
 
     public function bbm(){
-        return $this->hasOne(bbm::class);
+        return $this->hasOne(Bbm::class);
     }
 
     public function Unit()

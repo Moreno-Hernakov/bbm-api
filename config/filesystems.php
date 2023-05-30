@@ -56,6 +56,20 @@ return [
             'throw' => false,
         ],
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => 'ftp.pln-t.co.id',
+            'username' => 'ikhsan@api-fms.pln-t.co.id',
+            'password' => 'K@rtini23',
+
+            // Optional FTP Settings...
+            'port' => 21,
+            // 'root' => '',
+            // 'passive' => true,
+            // 'ssl' => true,
+            // 'timeout' => 30,
+        ],
+
     ],
 
     /*

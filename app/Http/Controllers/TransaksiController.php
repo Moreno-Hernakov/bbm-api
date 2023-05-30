@@ -36,7 +36,10 @@ class TransaksiController extends Controller
             'jumlah_pembelian_bbm' => 'required|integer',
             'gambar_dashboard_kendaraan' => 'required|mimes:jpeg,jpg,png',
             'gambar_kwitansi' => 'required|mimes:jpeg,jpg,png',
+            'nama_spbu' => 'required',
             'kd_jenis_kendaraan' => 'required',
+            'kd_kendaraan' => 'required',
+            'kd_bbm' => 'required',
         ]);
 
         $transaksi['gambar_dashboard_kendaraan'] =  $request->file("gambar_dashboard_kendaraan")->store('foto_dashboard', 'public');

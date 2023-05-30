@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('bbms', function (Blueprint $table) {
             $table->id();
             $table->string('jenis_bbm');
-            $table->string('nama_spbu');
-            $table->foreignId('kendaraan_id')->constrained('kendaraans')->onDelete('cascade');
             $table->timestamps();
         });
     }

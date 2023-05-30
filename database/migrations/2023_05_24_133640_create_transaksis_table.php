@@ -17,8 +17,12 @@ return new class extends Migration
             $table->integer('jumlah_uang');
             $table->string('gambar_dashboard_kendaraan');
             $table->string('gambar_kwitansi');
+            $table->string('nama_spbu');
             $table->integer('kd_jenis_kendaraan');
-            $table->foreign('kd_jenis_kendaraan')->references('kd_jenis_kendaraan')->on('jenis_kendaraans')->onDelete('cascade');   $table->timestamps();
+            $table->foreign('kd_jenis_kendaraan')->references('kd_jenis_kendaraan')->on('jenis_kendaraans')->onDelete('cascade');
+            $table->integer('kd_kendaraan');
+            $table->foreign('kd_kendaraan')->references('kd_kendaraan')->on('kendaraans')->onDelete('cascade');
+            $table->foreignId('kd_bbm')->constrained('bbms')->onDelete('cascade'); $table->timestamps();
         });
     }
 

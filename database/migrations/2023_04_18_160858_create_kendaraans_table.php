@@ -16,7 +16,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kendaraans', function (Blueprint $table) {
-            $table->id();
+            $table->index('kd_kendaraan');
             $table->integer('kd_kendaraan');
             $table->integer('kd_unit');
             $table->foreign('kd_unit')->references('kd_unit')->on('units')->onDelete('cascade');

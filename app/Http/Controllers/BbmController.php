@@ -13,9 +13,7 @@ class BbmController extends Controller
 
     public function store(){
         $bbm = request()->validate([
-            'nama_spbu' => 'required|min:2',
             'jenis_bbm' => 'required|min:2',
-            'kendaraan_id' => 'required',
         ]);
 
         bbm::create($bbm);

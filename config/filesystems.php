@@ -58,13 +58,13 @@ return [
 
         'ftp' => [
             'driver' => 'ftp',
-            'host' => 'ftp.pln-t.co.id',
-            'username' => 'ikhsan@api-fms.pln-t.co.id',
-            'password' => 'K@rtini23',
+            'host' => 'ftp.pln-t.co.id', //http://ftp.pln-t.co.id
+            'username' => 'fms@pln-t.co.id', //fms@pln-t.co.id
+            'password' => 'K@rtini23', //K@rtini23
 
             // Optional FTP Settings...
             'port' => 21,
-            // 'root' => '',
+            'root' => 'storage/app/public',
             // 'passive' => true,
             // 'ssl' => true,
             // 'timeout' => 30,

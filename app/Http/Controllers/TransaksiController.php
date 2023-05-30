@@ -46,8 +46,8 @@ class TransaksiController extends Controller
         $dashboard = $request->file('gambar_dashboard_kendaraan');
         $kwitansi = $request->file('gambar_kwitansi');
         
-        $transaksi['gambar_dashboard_kendaraan'] = Storage::disk('public')->put('foto_dashboard', $dashboard);
-        $transaksi['gambar_kwitansi'] = Storage::disk('public')->put('foto_kwitansi', $kwitansi);
+        $transaksi['gambar_dashboard_kendaraan'] = Storage::disk('ftp')->put('foto_dashboard', $dashboard);
+        $transaksi['gambar_kwitansi'] = Storage::disk('ftp')->put('foto_kwitansi', $kwitansi);
         // $transaksi['gambar_dashboard_kendaraan'] =  $request->file("gambar_dashboard_kendaraan")->store('foto_dashboard', 'public');
         // $transaksi['gambar_kwitansi'] =  $request->file("gambar_kwitansi")->store('foto_kwitansi', 'public');
 

@@ -2,24 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function register(){
+    public function register(Request $request)
+    {
         $data = request()->validate([
-			'name'=>'required|email',
-			'email'=>'required',
-			'nomor_telfon'=>'required',
-			'password'=>'required|min:3',
-		]);
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'nomor_telfon' => 'required',
+            'password' => 'required|min:3',
+        ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'nomor_telfon' => $request->nomor_telfon,
-            'password' => Hash::make($request->password)
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
         ]);
+
 
         return response()->json([
             'status' => true,
@@ -31,11 +35,11 @@ class UserController extends Controller
     public function login()
     {
         $data = request()->validate([
-			'email'=>'required|email',
-			'password'=>'required|min:3',
-		]);
+            'email' => 'required|email',
+            'password' => 'required|min:3',
+        ]);
 
-        if (! $token = auth()->attempt($data)) {
+        if (!$token = auth()->attempt($data)) {
             return response()->json([
                 'success' => false,
                 'message' => 'Email & Password does not match with our record.',

@@ -18,7 +18,7 @@ class Transaksi extends Model
 
     public function bbm()
     {
-        return $this->belongsTo(bbm::class, 'kd_bbm');
+        return $this->belongsTo(Bbm::class, 'kd_bbm');
     }
 
     public function Kendaraan()

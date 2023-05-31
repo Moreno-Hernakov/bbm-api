@@ -14,4 +14,8 @@ class bbm extends Model
     public function kendaraan(){
         return $this->belongsTo(kendaraan::class);
     }
+
+    public function Transaksi(){
+        return $this->hasOne(Transaksi::class);
+    }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\bbm;
+use App\Models\Bbm;
 
 class BbmController extends Controller
 {
@@ -16,11 +16,11 @@ class BbmController extends Controller
             'jenis_bbm' => 'required|min:2',
         ]);
 
-        bbm::create($bbm);
+        Bbm::create($bbm);
 
         return response()->json([
             'success' => true,
-            'message' => 'bbm berhasil ditambahakan'
+            'message' => 'Bbm berhasil ditambahakan'
         ]);
     }
 }

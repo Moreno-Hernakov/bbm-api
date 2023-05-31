@@ -10,16 +10,17 @@ class Unit extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $primaryKey = 'kd_unit';
 
+    protected $fillable = ['kd_unit', 'kd_area', 'nama_unit'];
 
-    public function Area()
+    public function area()
     {
         return $this->belongsTo(Area::class, 'kd_area', 'kd_area');
     }
 
-    public function Kendaraan()
+    public function kendaraan()
     {
         return $this->hasOne(Kendaraan::class);
     }
-
 }

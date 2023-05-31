@@ -23,6 +23,7 @@ use App\Http\Controllers\BbmController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
@@ -44,7 +45,7 @@ Route::middleware('auth:api')->group(function () {
         Route::put('/jeniskendaraan/{jeniskendaraan}', 'update');
         Route::delete('/jeniskendaraan/{jeniskendaraan}', 'destroy');
     });
-    
+
     Route::controller(MerkKendaraanController::class)->group(function () {
         Route::get('/merkkendaraan', 'index');
         Route::post('/merkkendaraan', 'store');
@@ -68,7 +69,7 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('/transaksi/{transaksi}', 'destroy');
     });
 
-  
+
 
     Route::controller(KendaraanController::class)->group(function () {
         Route::get('/kendaraan', 'index');
@@ -80,15 +81,15 @@ Route::middleware('auth:api')->group(function () {
     Route::controller(UnitController::class)->group(function () {
         Route::get('/unit', 'index');
         Route::post('/unit', 'store');
-        Route::put('/unit/{unit}', 'update');
+        Route::put('/unit/{kd_unit}', 'update');
         Route::delete('/unit/{unit}', 'destroy');
     });
-    
+
     Route::controller(SaldoController::class)->group(function () {
         Route::get('/saldo', 'index');
         Route::post('/saldo', 'store');
     });
-    
+
     Route::controller(BbmController::class)->group(function () {
         Route::get('/bbm', 'index');
         Route::post('/bbm', 'store');

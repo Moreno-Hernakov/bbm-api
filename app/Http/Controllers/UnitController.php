@@ -12,7 +12,7 @@ class UnitController extends Controller
      */
     public function index()
     {
-        $unit = unit::with('area.wilayah')->get();
+        $unit = unit::with('area.region')->get();
         return response()->json($unit);
     }
 
@@ -21,12 +21,13 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        $unit = request()->validate([
-            'wilayah_id' => 'required',
-            'area_id' => 'required',
+        $unit = $request->validate([
+            'kd_unit' => 'required',
+            'kd_area' => 'required',
+            'nama_unit' => 'required',
         ]);
 
-        unit::create($unit);
+        Unit::create($unit);
 
         return response()->json([
             'success' => true,
@@ -45,31 +46,36 @@ class UnitController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $kd_unit)
     {
-        $data = request()->validate([
-            'wilayah_id' => 'required',
-            'area_id' => 'required',
+        $data = $request->validate([
+            'kd_unit' => 'required',
+            'kd_area' => 'required',
+            'nama_unit' => 'required',
         ]);
 
-        unit::where('id', $id)->update($data);
+        Unit::where('kd_unit', $kd_unit)->update($data);
 
         return response()->json([
             'success' => true,
-            'message' => 'unit berhasil diperbarui'
-        ]);
+            'message' => 'Unit berhasil diperbarui',
+            'data' => $data
+        ], 200);
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(unit $unit)
+    public function destroy(Unit $unit)
     {
-        unit::destroy($unit->id);
+        $unit->delete();
 
         return response()->json([
             'success' => true,
-            'message' => 'unit berhasil dihapus'
+            'message' => 'Unit berhasil dihapus'
         ]);
     }
 }

@@ -12,7 +12,7 @@ class KendaraanController extends Controller
      */
     public function index()
     {
-        $kendaraan = kendaraan::with('JenisKendaraan', 'unit.area.wilayah')->get();
+        $kendaraan = kendaraan::with('JenisKendaraan', 'unit.area.region')->get();
         // $kendaraan = kendaraan::with('JenisKendaraan', 'unit', 'area', 'wilayah')->get();
         return response()->json($kendaraan);
     }

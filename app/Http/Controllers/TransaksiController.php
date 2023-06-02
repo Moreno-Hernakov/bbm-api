@@ -14,7 +14,7 @@ class TransaksiController extends Controller
     public function index()
     {
         //
-        $transaksi = transaksi::with('JenisKendaraan', 'bbm', 'kendaraan.unit.area.region')->get();
+        $transaksi = transaksi::with('JenisKendaraan', 'bbm', 'User.unit', 'kendaraan.unit.area.region')->get();
         return response()->json($transaksi);
     }
 
@@ -46,6 +46,7 @@ class TransaksiController extends Controller
         $dashboard = $request->file('gambar_dashboard_kendaraan');
         $kwitansi = $request->file('gambar_kwitansi');
         
+        $transaksi['user_id'] = auth()->user()->id;
         $transaksi['gambar_dashboard_kendaraan'] = Storage::disk('ftp')->put('foto_dashboard', $dashboard);
         $transaksi['gambar_kwitansi'] = Storage::disk('ftp')->put('foto_kwitansi', $kwitansi);
         // $transaksi['gambar_dashboard_kendaraan'] =  $request->file("gambar_dashboard_kendaraan")->store('foto_dashboard', 'public');

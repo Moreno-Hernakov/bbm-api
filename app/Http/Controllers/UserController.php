@@ -62,7 +62,7 @@ class UserController extends Controller
      */
     public function data()
     {
-        $user = Auth::user();
+        $user = User::with('Unit.area.region')->get();
 
         if ($user) {
             return response()->json($user);

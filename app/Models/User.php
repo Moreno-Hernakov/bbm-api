@@ -17,6 +17,16 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasOne(saldo::class);
     }
+
+    public function Transaksi()
+    {
+        return $this->hasOne(Transaksi::class);
+    }
+
+    public function Unit()
+    {
+        return $this->belongsTo(Unit::class, 'kd_unit', 'kd_unit');
+    }
     /**
      * The attributes that are mass assignable.
      *

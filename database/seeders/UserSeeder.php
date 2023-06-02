@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'user_id' => 1,
+            'kd_unit' => 1,
             'name' => 'Lokpro Media',
             'username' => 'Lokpro Media',
             'email' => 'lokpro2023@gmail.com',

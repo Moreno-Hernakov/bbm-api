@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->integer('kd_unit');
+            $table->foreign('kd_unit')->references('kd_unit')->on('units')->onDelete('cascade');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

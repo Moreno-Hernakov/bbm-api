@@ -23,4 +23,9 @@ class Unit extends Model
     {
         return $this->hasOne(Kendaraan::class);
     }
+
+    public function User()
+    {
+        return $this->hasOne(User::class);
+    }
 }

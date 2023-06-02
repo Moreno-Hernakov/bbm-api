@@ -73,6 +73,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::controller(KendaraanController::class)->group(function () {
         Route::get('/kendaraan', 'index');
+        Route::get('/kendaraan', 'index');
         Route::post('/kendaraan', 'store');
         Route::put('/kendaraan/{kendaraan}', 'update');
         Route::delete('/kendaraan/{kendaraan}', 'destroy');

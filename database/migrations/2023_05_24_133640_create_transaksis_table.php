@@ -22,7 +22,9 @@ return new class extends Migration
             $table->foreign('kd_jenis_kendaraan')->references('kd_jenis_kendaraan')->on('jenis_kendaraans')->onDelete('cascade');
             $table->integer('kd_kendaraan');
             $table->foreign('kd_kendaraan')->references('kd_kendaraan')->on('kendaraans')->onDelete('cascade');
-            $table->foreignId('kd_bbm')->constrained('bbms')->onDelete('cascade'); $table->timestamps();
+            $table->foreignId('kd_bbm')->constrained('bbms')->onDelete('cascade'); 
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); 
+            $table->timestamps();
         });
     }
 

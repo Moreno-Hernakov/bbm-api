@@ -10,6 +10,14 @@ class KendaraanController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function kendaranArea()
+    {
+        $kd_unit = auth()->user()->kd_unit;
+        $kendaraan = kendaraan::with('JenisKendaraan', 'unit.area.region')->where('kd_unit', $kd_unit)->get();
+        // $kendaraan = kendaraan::with('JenisKendaraan', 'unit', 'area', 'wilayah')->get();
+        return response()->json($kendaraan);
+    }
+
     public function index()
     {
         $kendaraan = kendaraan::with('JenisKendaraan', 'unit.area.region')->get();

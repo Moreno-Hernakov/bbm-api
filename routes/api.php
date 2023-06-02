@@ -69,11 +69,9 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('/transaksi/{transaksi}', 'destroy');
     });
 
-
-
     Route::controller(KendaraanController::class)->group(function () {
         Route::get('/kendaraan', 'index');
-        Route::get('/kendaraan', 'index');
+        Route::get('/kendaraan/area', 'kendaranArea');
         Route::post('/kendaraan', 'store');
         Route::put('/kendaraan/{kendaraan}', 'update');
         Route::delete('/kendaraan/{kendaraan}', 'destroy');

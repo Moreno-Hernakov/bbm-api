@@ -17,5 +17,10 @@ class RegionSeeder extends Seeder
             "kd_region" => 1,
             "nama_region" => "a1"
         ]);
+
+        Region::create([
+            "kd_region" => 2,
+            "nama_region" => "a2"
+        ]);
     }
 }

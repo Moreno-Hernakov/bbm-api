@@ -14,7 +14,7 @@ class TransaksiController extends Controller
     public function index()
     {
         //
-        $transaksi = transaksi::with('JenisKendaraan', 'bbm', 'User.unit', 'kendaraan.unit.area.region')->get();
+        $transaksi = transaksi::with('JenisKendaraan', 'bbm', 'User.unit', 'kendaraan.unit.area.region')->where('user_id', auth()->user()->id)->get();
         return response()->json($transaksi);
     }
 

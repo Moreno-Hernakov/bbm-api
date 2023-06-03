@@ -20,5 +20,13 @@ class KendaraanSeeder extends Seeder
             "kd_fungsi" => 1,   
             "nopol" => "L 1234 KT"
         ]);
+
+        Kendaraan::create([
+            "kd_kendaraan" => 2,
+            "kd_jenis_kendaraan" => 1,
+            "kd_unit" => 2,
+            "kd_fungsi" => 1,   
+            "nopol" => "L 1234 RFP"
+        ]);
     }
 }

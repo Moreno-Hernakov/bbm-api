@@ -62,7 +62,7 @@ class UserController extends Controller
      */
     public function data()
     {
-        $user = User::with('Unit.area.region')->get();
+        $user = User::with('Unit.area.region')->where('id', auth()->user()->id)->get();
 
         if ($user) {
             return response()->json($user);

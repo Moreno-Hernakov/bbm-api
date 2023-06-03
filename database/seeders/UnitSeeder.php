@@ -18,5 +18,11 @@ class UnitSeeder extends Seeder
             'kd_unit' => 1,
             'kd_area' => 1,
         ]);
+
+        Unit::create([
+            'nama_unit' => "unit 2",
+            'kd_unit' => 2,
+            'kd_area' => 2,
+        ]);
     }
 }

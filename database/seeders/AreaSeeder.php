@@ -18,5 +18,11 @@ class AreaSeeder extends Seeder
             "nama_area" => "surabaya",
             "kd_region" => 1
         ]);
+
+        Area::create([
+            "kd_area" => 2,
+            "nama_area" => "surabaya",
+            "kd_region" => 2
+        ]);
     }
 }

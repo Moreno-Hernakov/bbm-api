@@ -21,5 +21,14 @@ class UserSeeder extends Seeder
             'email' => 'lokpro2023@gmail.com',
             'password' => bcrypt('lokpro2023'),
         ]);
+
+        User::create([
+            'user_id' => 2,
+            'kd_unit' => 2,
+            'name' => 'test',
+            'username' => 'test',
+            'email' => 'test@gmail.com',
+            'password' => bcrypt('test'),
+        ]);
     }
 }

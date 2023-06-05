@@ -13,6 +13,8 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\BbmController;
+use App\Http\Controllers\RegionController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -93,4 +95,8 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/bbm', 'index');
         Route::post('/bbm', 'store');
     });
+});
+Route::controller(RegionController::class)->group(function () {
+    Route::get('/region', 'index');
+    Route::post('/region', 'store');
 });

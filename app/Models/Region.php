@@ -11,7 +11,13 @@ class Region extends Model
 
     protected $guarded = [];
 
-    public function area(){
+    public function area()
+    {
         return $this->hasOne(area::class);
     }
+
+    protected $fillable = [
+        'kd_region',
+        'nama_region',
+    ];
 }

@@ -8,7 +8,7 @@ use App\Models\Bbm;
 class BbmController extends Controller
 {
     public function index(){
-        return response()->json(bbm::with('kendaraan.jeniskendaraan', 'kendaraan.unit')->get());
+        return response()->json(bbm::all());
     }
 
     public function store(){

@@ -20,9 +20,8 @@ class SaldoController extends Controller
         ]);
 
         $saldo['user_id'] = auth()->user()->id;
-        saldo::create($saldo);
 
-        $saldo_latest = saldo::latest()->first();
+        $saldo_latest = saldo::create($saldo);
 
         app('App\Http\Controllers\HistoryController')->store('tambah', $saldo['jumlah_saldo'], $saldo_latest->id);
 
@@ -34,12 +33,12 @@ class SaldoController extends Controller
 
     public function kurang($jumlah_uang)
     {
-        $saldo['user_id'] = auth()->user()->id;
 
-        $saldo = saldo::latest()->first();
+        $user_id = auth()->user()->id;
+        $saldo = saldo::where('user_id', $user_id)->first();
         
         if($saldo->jumlah_saldo < $jumlah_uang){
-            return response()->json(abort(400, "uang tidak mencukupi"));
+            return response()->json(abort(400, "saldo tidak mencukupi untuk melakukan transaksi"));
         }
 
         saldo::where('user_id', auth()->user()->id)->update([

@@ -58,9 +58,9 @@ return [
 
         'ftp' => [
             'driver' => 'ftp',
-            'host' => 'ftp.pln-t.co.id', //http://ftp.pln-t.co.id
-            'username' => 'fms@pln-t.co.id', //fms@pln-t.co.id
-            'password' => 'K@rtini23', //K@rtini23
+            'host' => '**********', 
+            'username' => '*******', 
+            'password' => '*********',
 
             // Optional FTP Settings...
             'port' => 21,
@@ -88,3 +88,9 @@ return [
     ],
 
 ];
+
+
+    // 'driver' => 'ftp',
+    // 'host' => 'ftp.pln-t.co.id', //http://ftp.pln-t.co.id
+    // 'username' => 'fms@pln-t.co.id', //fms@pln-t.co.id
+    // 'password' => 'K@rtini23', //K@rtini23
